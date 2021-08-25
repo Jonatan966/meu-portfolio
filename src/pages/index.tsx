@@ -61,7 +61,13 @@ export const Home = (): JSX.Element => (
         rel="noopener noreferrer"
       >
         Powered by{' '}
-        <Image src="/vercel.svg" alt="Vercel Logo" height={'32'} width={'64'} />
+        <Image
+          src="/vercel.svg"
+          alt="Vercel Logo"
+          data-nimg="true"
+          height={'32'}
+          width={'64'}
+        />
       </a>
     </footer>
 
