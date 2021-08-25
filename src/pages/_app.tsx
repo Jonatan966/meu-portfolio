@@ -11,8 +11,8 @@ const themes = {
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      <GlobalStyles />
       <ThemeProvider theme={themes.dark}>
+        <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
