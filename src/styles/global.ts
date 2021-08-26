@@ -12,8 +12,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.colors.main.background};
-    color: ${props => props.theme.colors.main.text};
+    background: ${(props) => props.theme.colors.main.background};
+    &, a {
+      color: ${(props) => props.theme.colors.main.text};
+      text-decoration: none;
+    }
   }
 
   @media (max-width: 1080px) {
