@@ -17,7 +17,9 @@ export function Header(): JSX.Element {
       <div className="content">
         <Button>A</Button>
 
-        <strong className="only-mobile">Home</strong>
+        <strong className="only-mobile" hidden={isOptionsVisible}>
+          Home
+        </strong>
 
         <Button
           className="only-mobile"
