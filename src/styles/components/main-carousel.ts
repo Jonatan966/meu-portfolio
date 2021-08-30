@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { AppImage } from '../../components/app-image'
 
 interface MainCarouselContainerProps {
   imageCount: number
@@ -19,10 +20,9 @@ export const MainCarouselContainer = styled.div<MainCarouselContainerProps>`
   z-index: -1;
 `
 
-export const CarouselImage = styled.img<MainCarouselContainerProps>`
+export const CarouselImage = styled(AppImage)<MainCarouselContainerProps>`
   width: ${carouselImageWidth}rem;
   height: ${carouselImageHeight}rem;
-  border-radius: 0.5rem;
 
   object-fit: cover;
 
