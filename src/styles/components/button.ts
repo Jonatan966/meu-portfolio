@@ -22,32 +22,49 @@ export const Button = styled.button<ButtonProps>`
   justify-content: center;
   gap: 0.25rem;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   ${(props) =>
     props.isOutlined
       ? css`
           border: 2px solid ${(props) => props.theme.colors.cta.primary};
-          color: ${(props) => props.theme.colors.cta.active};
           background: transparent;
 
-          &:hover {
-            border-color: ${(props) => props.theme.colors.cta.hover};
-            color: ${(props) => props.theme.colors.cta.primary};
+          &:disabled {
+            border-color: ${(props) => props.theme.colors.messages.disabled};
+            color: ${(props) => props.theme.colors.messages.disabled}bb;
           }
 
-          &:active {
-            border-color: ${(props) => props.theme.colors.cta.active};
-            color: ${(props) => props.theme.colors.cta.primary};
+          &:not(:disabled) {
+            color: ${(props) => props.theme.colors.cta.active};
+
+            &:hover {
+              border-color: ${(props) => props.theme.colors.cta.hover};
+              color: ${(props) => props.theme.colors.cta.primary};
+            }
+
+            &:active {
+              border-color: ${(props) => props.theme.colors.cta.active};
+              color: ${(props) => props.theme.colors.cta.primary};
+            }
           }
         `
       : css`
-          background: ${(props) => props.theme.colors.cta.primary};
-
-          &:hover {
-            background: ${(props) => props.theme.colors.cta.hover};
+          &:disabled {
+            background: ${(props) => props.theme.colors.messages.disabled};
           }
 
-          &:active {
-            background: ${(props) => props.theme.colors.cta.active};
+          &:not(:disabled) {
+            background: ${(props) => props.theme.colors.cta.primary};
+            &:hover {
+              background: ${(props) => props.theme.colors.cta.hover};
+            }
+
+            &:active {
+              background: ${(props) => props.theme.colors.cta.active};
+            }
           }
         `}
 `
