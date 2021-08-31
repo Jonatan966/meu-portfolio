@@ -9,18 +9,18 @@ export const DefaultSection = styled.section`
   margin: 0 auto;
   padding: 2.25rem;
 
-  header {
-    margin-bottom: 1rem;
-
-    display: flex;
-    align-items: center;
-
-    ${Button} {
-      margin-left: auto;
-    }
-  }
-
   @media (max-width: 575px) {
     padding: 2rem 1rem;
+  }
+`
+
+export const SectionHeader = styled.header`
+  margin-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+
+  ${Button} {
+    margin-left: auto;
   }
 `
