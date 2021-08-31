@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import { Button } from '../styles/components/button'
 import { HeaderContainer } from '../styles/components/header'
@@ -11,6 +12,24 @@ import closeImg from '../images/close.svg'
 
 export function Header(): JSX.Element {
   const [isOptionsVisible, setIsOptionsVisible] = useState(false)
+  const router = useRouter()
+
+  const checkRoute = (route: string, isExact = true): string =>
+    (isExact ? router.pathname === route : router.pathname.includes(route))
+      ? 'selected'
+      : ''
+
+  const routeTitles = {
+    '/': 'Home',
+    '/projects': 'Projetos',
+    '/posts': 'Blog',
+    '/contact': 'Contato',
+  }
+
+  const firstPartOfRoute = router.pathname.substring(
+    `${router.pathname}/`.indexOf('/', 1),
+    0
+  )
 
   return (
     <HeaderContainer>
@@ -18,7 +37,7 @@ export function Header(): JSX.Element {
         <Button>A</Button>
 
         <strong className="only-mobile" hidden={isOptionsVisible}>
-          Home
+          {routeTitles[firstPartOfRoute]}
         </strong>
 
         <Button
@@ -30,21 +49,23 @@ export function Header(): JSX.Element {
 
         <nav className={isOptionsVisible ? 'visible' : ''}>
           <ul>
-            <Link href="#">
-              <a className="selected">Home</a>
+            <Link href="/">
+              <a className={checkRoute('/', true)}>Home</a>
             </Link>
-            <Link href="#">
-              <a>Projetos</a>
+            <Link href="/projects">
+              <a className={checkRoute('/projects')}>Projetos</a>
             </Link>
-            <Link href="#">
-              <a>Blog</a>
+            <Link href="/posts">
+              <a className={checkRoute('/posts')}>Blog</a>
             </Link>
           </ul>
 
-          <Button>
-            <Image src={chatBaloonImg} />
-            <span>Entrar em contato</span>
-          </Button>
+          <Link href="/contact">
+            <Button>
+              <Image src={chatBaloonImg} />
+              <span>Entrar em contato</span>
+            </Button>
+          </Link>
         </nav>
       </div>
     </HeaderContainer>
