@@ -1,5 +1,10 @@
+import { Link } from 'prismic-reactjs'
+
+import { Image } from './image'
+
 export interface Tech {
   id: string
   name: string
-  icon_url: string
+  icon: Image
+  about_url: Link
 }
