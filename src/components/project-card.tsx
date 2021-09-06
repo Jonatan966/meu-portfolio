@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { RichText } from 'prismic-reactjs'
 
 import { Project } from '../@types/project'
 import { AppImage } from './app-image'
@@ -13,21 +13,14 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({
-  project: {
-    name,
-    description,
-    main_image_url,
-    repository_url,
-    hosted_url,
-    techs,
-  },
+  project: { name, description, main_image, repository_url, hosted_url, techs },
 }: ProjectCardProps): JSX.Element {
   return (
     <ProjectCardContainer>
       <div className="project-image">
         <strong>{name}</strong>
         <Image
-          src={main_image_url}
+          src={main_image.url}
           objectFit="cover"
           layout="fill"
           className="image-container"
@@ -37,7 +30,7 @@ export function ProjectCard({
       <article className="project-info">
         <section>
           <h6>Descrição</h6>
-          <p>{description}</p>
+          {RichText.render(description)}
         </section>
 
         <section>
@@ -45,22 +38,26 @@ export function ProjectCard({
           <FlexList direction="row" gap={0.5}>
             {techs.map((tech) => (
               <AppImage
-                src={tech.icon_url}
+                src={tech.icon.url}
                 alt={tech.name}
                 key={tech.id}
-                size={3.75}
+                size={3.5}
               />
             ))}
           </FlexList>
         </section>
 
         <footer>
-          <Link href={hosted_url || ''}>
-            <Button disabled={!hosted_url}>Testar</Button>
-          </Link>
-          <Link href={repository_url}>
-            <Button isOutlined>Ver código fonte</Button>
-          </Link>
+          <Button
+            {...(hosted_url?.url
+              ? { as: 'a', href: hosted_url.url, target: '_blank' }
+              : { disabled: true })}
+          >
+            Testar
+          </Button>
+          <Button isOutlined as="a" target="_blank" href={repository_url.url}>
+            Ver código fonte
+          </Button>
         </footer>
       </article>
     </ProjectCardContainer>
