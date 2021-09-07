@@ -2,22 +2,22 @@ import 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    currentTheme: 'dark' | 'light',
+    currentTheme: 'dark' | 'light'
     colors: {
       main: {
-        details: string,
-        text: string,
+        details: string
+        text: string
         background
-      },
+      }
       cta: {
-        hover: string,
-        primary: string,
+        hover: string
+        primary: string
         active: string
-      },
+      }
       messages: {
-        danger: string,
-        success: string,
-        disabled: string,
+        danger: string
+        success: string
+        disabled: string
       }
     }
   }
