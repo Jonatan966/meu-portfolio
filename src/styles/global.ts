@@ -19,14 +19,66 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  h2 {
+    font-size: 4.188rem;
+    line-height: 110%;  
+  }
+
+  h3 {
+    font-size: 2.375rem;
+    line-height: 120%;
+  }
+
+  h4 {
+    font-size: 1.75rem;
+  }
+
+  h5 {
+    font-size: 1.313rem;
+    font-weight: normal;
+  }
+
+  h6 {
+    font-size: 1.313rem;
+    line-height: 150%;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 150%;
+  }
+
+  hr {
+    border-color: #BEBEBE;
+    opacity: 0.5;
+  }
+
+
   @media (max-width: 1080px) {
     html {
       font-size: 93.75%;
     }
   }
+
   @media (max-width: 720px) {
     html {
       font-size: 87.5%;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 425px) {
+    .only-on-mobile {
+      display: none !important;
     }
   }
 `
