@@ -58,6 +58,8 @@ export const Button = styled.button<ButtonProps>`
 
           &:not(:disabled) {
             background: ${(props) => props.theme.colors.cta.primary};
+            color: ${(props) => props.theme.colors.main.details};
+
             &:hover {
               background: ${(props) => props.theme.colors.cta.hover};
             }
