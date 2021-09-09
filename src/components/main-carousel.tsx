@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Image } from '../@types/image'
 
 import {
   CarouselImage,
@@ -6,7 +7,7 @@ import {
 } from '../styles/components/main-carousel'
 
 interface MainCarouselProps {
-  images: string[]
+  images: Image[]
 }
 
 export function MainCarousel({ images }: MainCarouselProps): JSX.Element {
@@ -29,9 +30,10 @@ export function MainCarousel({ images }: MainCarouselProps): JSX.Element {
 
   return (
     <MainCarouselContainer imageCount={images.length}>
-      {images.map((url, key) => (
+      {images.map(({ url, alt }, key) => (
         <CarouselImage
           src={url}
+          alt={alt}
           id={`${positions[key]}`}
           key={`image-${key}`}
           imageCount={images.length}
