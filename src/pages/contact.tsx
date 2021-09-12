@@ -3,6 +3,9 @@ import Prismic from '@prismicio/client'
 import { Link as PrismicLink } from 'prismic-reactjs'
 
 import { prismic } from '../services/prismic'
+import { parsePrismicList } from '../utils/parse-prismic-list'
+
+import { AppHead } from '../components/app-head'
 
 import { Button } from '../styles/components/button'
 import {
@@ -10,7 +13,6 @@ import {
   SectionHeader,
 } from '../styles/components/default-section'
 import { GridList } from '../styles/components/grid-list'
-import { parsePrismicList } from '../utils/parse-prismic-list'
 
 interface ContactButtonProps {
   href: string
@@ -44,6 +46,7 @@ export default function ContactPage({
 }: ContactPageProps): JSX.Element {
   return (
     <>
+      <AppHead title="Entrar em contato" />
       <main>
         {formsOfContact.map((formOfContact) => (
           <DefaultSection key={formOfContact.id}>
