@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
+// import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
-import { AppProps, AppContext } from 'next/app'
+import { AppProps } from 'next/app'
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
 
 import { GlobalStyles } from '../styles/global'
@@ -14,16 +14,18 @@ const themes = {
   light: lightTheme,
 }
 
-interface CustomAppProps extends AppProps {
-  storagedTheme: 'dark' | 'light'
-}
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const [currentTheme, setCurrentTheme] = useState('dark')
 
-const App = ({
-  Component,
-  pageProps,
-  storagedTheme,
-}: CustomAppProps): JSX.Element => {
-  const [currentTheme, setCurrentTheme] = useState(storagedTheme)
+  useEffect(() => {
+    const { 'jonatan-portfolio:theme': theme } = parseCookies()
+
+    if (!themes?.[theme]) {
+      return
+    }
+
+    setCurrentTheme(theme)
+  }, [])
 
   const toggleTheme = () =>
     setCurrentTheme((oldTheme) => {
@@ -48,31 +50,6 @@ const App = ({
       </ThemeProvider>
     </>
   )
-}
-
-App.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
-}
-
-App.getInitialProps = async ({ Component, ctx }: AppContext): Promise<any> => {
-  let pageProps = {}
-  let storagedTheme = 'dark'
-
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
-  }
-
-  if (ctx.req) {
-    const { 'jonatan-portfolio:theme': theme } = parseCookies(ctx)
-
-    storagedTheme = theme || 'dark'
-  }
-
-  return {
-    pageProps,
-    storagedTheme,
-  }
 }
 
 export default App
