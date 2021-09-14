@@ -2,7 +2,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { AppProps, AppContext } from 'next/app'
-import { setCookie, parseCookies } from 'nookies'
+import { setCookie, parseCookies, destroyCookie } from 'nookies'
 
 import { GlobalStyles } from '../styles/global'
 import { darkTheme } from '../styles/themes/dark'
@@ -28,6 +28,8 @@ const App = ({
   const toggleTheme = () =>
     setCurrentTheme((oldTheme) => {
       const newTheme = oldTheme === 'light' ? 'dark' : 'light'
+
+      destroyCookie(null, 'jonatan-portfolio:theme')
 
       setCookie(null, 'jonatan-portfolio:theme', newTheme, {
         maxAge: 30 * 24 * 60 * 60,
