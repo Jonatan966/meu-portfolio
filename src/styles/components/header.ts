@@ -4,13 +4,17 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
 
-  background: ${(props) => props.theme.colors.main.background};
+  background: ${(props) => props.theme.colors.main.background}dd;
   backdrop-filter: blur(4px);
   height: 4.5rem;
 
   position: sticky;
   top: 0;
   z-index: 9999;
+
+  &.is-options-visible {
+    background: ${(props) => props.theme.colors.main.background};
+  }
 
   .content {
     display: flex;

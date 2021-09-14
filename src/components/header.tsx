@@ -40,7 +40,7 @@ export function Header({ toggleTheme }: HeaderProps): JSX.Element {
   }, [router.pathname])
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className={isOptionsVisible ? 'is-options-visible' : ''}>
       <div className="content">
         <ThemeSwitcher toggleTheme={toggleTheme} />
 
