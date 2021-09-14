@@ -8,8 +8,13 @@ import { HeaderContainer } from '../styles/components/header'
 import ChatBaloonImg from '../images/chat-baloon.svg'
 import HamburguerMenuImg from '../images/hamburguer-menu.svg'
 import CloseImg from '../images/close.svg'
+import { ThemeSwitcher } from './theme-switcher'
 
-export function Header(): JSX.Element {
+interface HeaderProps {
+  toggleTheme: () => void
+}
+
+export function Header({ toggleTheme }: HeaderProps): JSX.Element {
   const [isOptionsVisible, setIsOptionsVisible] = useState(false)
   const router = useRouter()
 
@@ -37,7 +42,7 @@ export function Header(): JSX.Element {
   return (
     <HeaderContainer>
       <div className="content">
-        <Button>A</Button>
+        <ThemeSwitcher toggleTheme={toggleTheme} />
 
         <strong className="only-mobile" hidden={isOptionsVisible}>
           {routeTitles[firstPartOfRoute]}
