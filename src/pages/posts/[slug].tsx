@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import Prismic from '@prismicio/client'
 import { RichText } from 'prismic-reactjs'
 
-import { ArrowLeft } from '../../components/arrow-left'
+import ArrowLeftImg from '../../images/arrow-left.svg'
 import { AppHead } from '../../components/app-head'
 
 import { prismic } from '../../services/prismic'
@@ -24,7 +24,7 @@ export default function PostPage({ post }: PostPageProps): JSX.Element {
         <PostArticle as="article">
           <header>
             <a href="/posts">
-              <ArrowLeft width="2.5rem" height="2.5rem" />
+              <ArrowLeftImg width="2.5rem" height="2.5rem" />
             </a>
             <h2>{post.title}</h2>
             <h6>{dayjs(post.publish_date).locale('pt-br').format('LL')}</h6>

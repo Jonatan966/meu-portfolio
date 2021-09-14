@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { Button } from '../styles/components/button'
 import { HeaderContainer } from '../styles/components/header'
 
-import chatBaloonImg from '../images/chat-baloon.svg'
-import hamburguerMenuImg from '../images/hamburguer-menu.svg'
-import closeImg from '../images/close.svg'
+import ChatBaloonImg from '../images/chat-baloon.svg'
+import HamburguerMenuImg from '../images/hamburguer-menu.svg'
+import CloseImg from '../images/close.svg'
 
 export function Header(): JSX.Element {
   const [isOptionsVisible, setIsOptionsVisible] = useState(false)
@@ -48,7 +47,7 @@ export function Header(): JSX.Element {
           className="only-mobile"
           onClick={() => setIsOptionsVisible(!isOptionsVisible)}
         >
-          <Image src={isOptionsVisible ? closeImg : hamburguerMenuImg} />
+          {isOptionsVisible ? <CloseImg /> : <HamburguerMenuImg />}
         </Button>
 
         <nav className={isOptionsVisible ? 'visible' : ''}>
@@ -66,7 +65,7 @@ export function Header(): JSX.Element {
 
           <Link href="/contact">
             <Button>
-              <Image src={chatBaloonImg} />
+              <ChatBaloonImg />
               <span>Entrar em contato</span>
             </Button>
           </Link>
