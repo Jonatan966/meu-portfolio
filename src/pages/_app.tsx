@@ -69,6 +69,8 @@ App.getInitialProps = async ({ Component, ctx }: AppContext): Promise<any> => {
     storagedTheme = theme || 'dark'
   }
 
+  console.log('bom dia', parseCookies(ctx))
+
   return {
     pageProps,
     storagedTheme,
