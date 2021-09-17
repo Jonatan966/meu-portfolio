@@ -28,6 +28,9 @@ import { Image as PrismicImage } from '../@types/image'
 
 import { prismic } from '../services/prismic'
 import { parsePrismicList } from '../utils/parse-prismic-list'
+import { ContactCard } from '../components/contact-card'
+import { GridList } from '../styles/components/grid-list'
+import { FormOfContact } from '../@types/form-of-contact'
 
 export interface AboutMe {
   description: RichTextBlock[]
@@ -35,6 +38,7 @@ export interface AboutMe {
   favorite_projects: Project[]
   carousel: PrismicImage[]
   curriculum: PrismicLink
+  forms_of_contact: FormOfContact[]
 }
 
 export default function HomePage({
@@ -43,6 +47,7 @@ export default function HomePage({
   favorite_projects,
   carousel,
   curriculum,
+  forms_of_contact,
 }: AboutMe): JSX.Element {
   return (
     <>
@@ -89,6 +94,21 @@ export default function HomePage({
               Obter meu currículo
             </Button>
           </AboutMeSectionContent>
+        </DefaultSection>
+
+        <DefaultSection>
+          <SectionHeader>
+            <h3>Formas de contato</h3>
+          </SectionHeader>
+
+          <GridList gap={1} columns={4}>
+            {forms_of_contact.map((form_of_contact) => (
+              <ContactCard
+                key={form_of_contact.type}
+                formOfContact={form_of_contact}
+              />
+            ))}
+          </GridList>
         </DefaultSection>
 
         <DefaultSection>
@@ -162,6 +182,7 @@ export const getStaticProps: GetStaticProps = async () => {
     skills: parsePrismicList(informations.skills),
     favorite_projects: parsePrismicList(informations.favorite_projects),
     carousel: parsePrismicList(informations.carousel, false),
+    forms_of_contact: informations.forms_of_contact,
   }
 
   parsedInformations.favorite_projects =
