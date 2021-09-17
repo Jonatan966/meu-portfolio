@@ -71,10 +71,6 @@ export const HeaderContainer = styled.header`
     }
   }
 
-  .only-mobile {
-    visibility: hidden;
-  }
-
   @media (max-width: 575px) {
     nav {
       position: absolute;
@@ -116,9 +112,11 @@ export const HeaderContainer = styled.header`
         margin-top: auto;
       }
     }
+  }
 
+  @media (min-width: 575px) {
     .only-mobile {
-      visibility: visible;
+      display: none;
     }
   }
 `

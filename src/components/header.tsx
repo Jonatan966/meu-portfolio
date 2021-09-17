@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { Button } from '../styles/components/button'
 import { HeaderContainer } from '../styles/components/header'
 
-import ChatBaloonImg from '../images/chat-baloon.svg'
 import HamburguerMenuImg from '../images/hamburguer-menu.svg'
 import CloseImg from '../images/close.svg'
 import { ThemeSwitcher } from './theme-switcher'
@@ -67,13 +66,6 @@ export function Header({ toggleTheme }: HeaderProps): JSX.Element {
               <a className={checkRoute('/posts')}>Blog</a>
             </Link>
           </ul>
-
-          <Link href="/contact">
-            <Button>
-              <ChatBaloonImg />
-              <span>Entrar em contato</span>
-            </Button>
-          </Link>
         </nav>
       </div>
     </HeaderContainer>
