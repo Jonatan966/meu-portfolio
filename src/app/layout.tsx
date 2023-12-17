@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const inter = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"] });
+const inter = Roboto({
+  weight: ["100", "300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Jonatan Frederico",
