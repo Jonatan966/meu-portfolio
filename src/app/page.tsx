@@ -5,6 +5,11 @@ export default function Home() {
     <>
       <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214]">
         <div className="max-w-[1050px] mx-auto p-4 flex items-center">
+          <img
+            src="https://github.com/Jonatan966.png"
+            alt="Foto de perfil de Jonatan Frederico"
+            className="w-8 h-8 rounded-full mr-2"
+          />
           <h1 className="font-semibold">Jonatan Frederico</h1>
 
           <nav className="ml-auto flex items-center gap-2">
