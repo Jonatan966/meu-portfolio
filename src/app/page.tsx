@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <header className="border-b-2 border-[#232327]">
+      <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214]">
         <div className="max-w-[1050px] mx-auto p-4 flex items-center">
           <h1 className="font-semibold">Jonatan Frederico</h1>
 
@@ -262,6 +262,12 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <footer className="text-center bg-[#09090A] py-4 mt-4 text-sm">
+        <span>
+          Feito com 💝 por <b>Jonatan Frederico</b>
+        </span>
+      </footer>
     </>
   );
 }
