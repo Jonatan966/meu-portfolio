@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="font-semibold">Jonatan Frederico</h1>
 
           <nav className="ml-auto flex items-center gap-2">
-            <ul className="flex gap-2 px-2 border-r-2 border-[#232327]">
+            <ul className="hidden gap-2 px-2 border-r-2 border-[#232327] md:flex">
               <li className="font-semibold">
                 <Link href="/">Projetos</Link>
               </li>
@@ -67,7 +67,7 @@ export default function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Projetos</h2>
 
-          <ul className="grid grid-cols-3 gap-4 mt-4">
+          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
             <li className="bg-[#09090A] p-4 rounded-md">
               <img
                 src="https://github.com/Jonatan966.png"
@@ -104,7 +104,7 @@ export default function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Certificados</h2>
 
-          <ul className="grid grid-cols-3 gap-4 mt-4">
+          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col">
               <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
                 nov 2022 - set 2023
@@ -138,41 +138,43 @@ export default function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Jornada</h2>
 
-          <div className="bg-[#09090A] p-4 rounded-md mt-4 flex gap-4 border border-[#232327]">
-            <img
-              src="https://github.com/Jonatan966.png"
-              alt="Jonatan"
-              className="w-20 h-20 rounded-md"
-            />
+          <div className="bg-[#09090A] p-4 rounded-md mt-4 flex gap-4 border border-[#232327] md:flex-row flex-col">
+            <div className="flex gap-2">
+              <img
+                src="https://github.com/Jonatan966.png"
+                alt="Jonatan"
+                className="w-20 h-20 rounded-md"
+              />
 
-            <div className="flex flex-col justify-between h-auto">
-              <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto">
-                nov 2022 - set 2023
-              </span>
-              <h3 className="font-semibold">Empresa Tal</h3>
-              <p className="text-sm text-[#C4C4CC]">Cargo tal</p>
+              <div className="flex flex-col justify-between h-auto items-start md:items-stretch">
+                <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto">
+                  nov 2022 - set 2023
+                </span>
+                <h3 className="font-semibold">Empresa Tal</h3>
+                <p className="text-sm text-[#C4C4CC]">Cargo tal</p>
+              </div>
             </div>
 
-            <ul className="flex my-auto ml-auto gap-2">
+            <ul className="flex my-auto md:ml-auto gap-2">
               <li className="text-sm text-[#C4C4CC]">
                 <img
                   src="https://github.com/NodeJS.png"
                   alt=""
-                  className="w-16 h-16"
+                  className="w-10 h-10"
                 />
               </li>
               <li className="text-sm text-[#C4C4CC]">
                 <img
                   src="https://github.com/NodeJS.png"
                   alt=""
-                  className="w-16 h-16"
+                  className="w-10 h-10"
                 />
               </li>{" "}
               <li className="text-sm text-[#C4C4CC]">
                 <img
                   src="https://github.com/NodeJS.png"
                   alt=""
-                  className="w-16 h-16"
+                  className="w-10 h-10"
                 />
               </li>
             </ul>
@@ -182,9 +184,9 @@ export default function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Publicações</h2>
 
-          <ul className="grid grid-cols-3 gap-4 mt-4">
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col col-start-1 col-end-3 border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[40%]">
+          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
+            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col md:col-start-1 md:col-end-3 border border-[#232327]">
+              <h3 className="font-medium text-md my-auto md:max-w-[40%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
               </h3>
               <p className="text-[#C4C4CC] text-xs">
@@ -192,7 +194,7 @@ export default function Home() {
               </p>
             </li>
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
+              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
               </h3>
               <p className="text-[#C4C4CC] text-xs">
@@ -200,7 +202,7 @@ export default function Home() {
               </p>
             </li>
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
+              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
               </h3>
               <p className="text-[#C4C4CC] text-xs">
@@ -208,7 +210,7 @@ export default function Home() {
               </p>
             </li>
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
+              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
               </h3>
               <p className="text-[#C4C4CC] text-xs">
@@ -216,7 +218,7 @@ export default function Home() {
               </p>
             </li>
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
+              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
               </h3>
               <p className="text-[#C4C4CC] text-xs">
@@ -227,7 +229,7 @@ export default function Home() {
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
-          <div className="bg-orange-500 p-4 rounded-md flex items-center gap-4">
+          <div className="bg-orange-500 p-4 rounded-md flex flex-col md:items-center gap-4 md:flex-row">
             <span className="text-4xl">👀</span>
 
             <div>
@@ -235,7 +237,7 @@ export default function Home() {
               <p>Me acompanhe ou entre em contato em várias redes!</p>
             </div>
 
-            <ul className="flex gap-2 ml-auto">
+            <ul className="flex gap-2 md:ml-auto">
               <li>
                 <Link href="/">
                   <img

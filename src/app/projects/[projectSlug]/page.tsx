@@ -13,7 +13,7 @@ export default function ProjectPage() {
           <h1 className="font-semibold">Jonatan Frederico</h1>
 
           <nav className="ml-auto flex items-center gap-2">
-            <ul className="flex gap-2 px-2 border-r-2 border-[#232327]">
+            <ul className="hidden gap-2 px-2 border-r-2 border-[#232327] md:flex">
               <li className="font-semibold">
                 <Link href="/">Projetos</Link>
               </li>
@@ -60,8 +60,8 @@ export default function ProjectPage() {
 
       <main>
         <section className="h-96 bg-[#09090A]">
-          <div className="max-w-[1050px] mx-auto flex h-full py-4 justify-center">
-            <div className="w-[50%] h-full flex flex-col gap-2">
+          <div className="max-w-[1050px] mx-auto flex h-full py-4 justify-center px-4">
+            <div className="md:w-[50%] h-full flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <img
                   src="https://github.com/Jonatan966.png"
@@ -78,7 +78,7 @@ export default function ProjectPage() {
                 corrupti neque praesentium eius repellendus.
               </p>
 
-              <div className="grid grid-cols-2 gap-2 mt-auto">
+              <div className="grid sm:grid-cols-2 gap-2 mt-auto">
                 <button className="bg-orange-500 p-1 rounded-md font-bold">
                   Acessar Repositório
                 </button>
@@ -113,7 +113,7 @@ export default function ProjectPage() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Diário de bordo</h2>
 
-          <ul className="grid grid-cols-3 gap-4 mt-2">
+          <ul className="grid md:grid-cols-3 gap-4 mt-2">
             <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
               <h3 className="font-medium text-md my-auto max-w-[75%]">
                 Callback, Promises e Async/Await: Tudo o que você precisa saber
@@ -142,7 +142,7 @@ export default function ProjectPage() {
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
-          <div className="bg-orange-500 p-4 rounded-md flex items-center gap-4">
+          <div className="bg-orange-500 p-4 rounded-md flex flex-col md:items-center gap-4 md:flex-row">
             <span className="text-4xl">👀</span>
 
             <div>
@@ -150,7 +150,7 @@ export default function ProjectPage() {
               <p>Me acompanhe ou entre em contato em várias redes!</p>
             </div>
 
-            <ul className="flex gap-2 ml-auto">
+            <ul className="flex gap-2 md:ml-auto">
               <li>
                 <Link href="/">
                   <img
