@@ -1,4 +1,5 @@
 import { ProjectCard } from "@/components/project-card";
+import { SocialLinks } from "@/components/social-links";
 import Link from "next/link";
 
 export default function Home() {
@@ -26,35 +27,7 @@ export default function Home() {
               </li>
             </ul>
 
-            <ul className="flex gap-2">
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-            </ul>
+            <SocialLinks />
           </nav>
         </div>
       </header>
@@ -211,35 +184,7 @@ export default function Home() {
               <p>Me acompanhe ou entre em contato em várias redes!</p>
             </div>
 
-            <ul className="flex gap-2 md:ml-auto">
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <img
-                    src="https://github.com/Github.png"
-                    alt="github"
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </li>
-            </ul>
+            <SocialLinks className="md:ml-auto" />
           </div>
         </section>
       </main>
