@@ -1,3 +1,4 @@
+import { ProjectCard } from "@/components/project-card";
 import Link from "next/link";
 
 export default function Home() {
@@ -68,36 +69,9 @@ export default function Home() {
           <h2 className="text-xl font-medium">Projetos</h2>
 
           <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
-            <li className="bg-[#09090A] p-4 rounded-md">
-              <img
-                src="https://github.com/Jonatan966.png"
-                alt="Github"
-                className="w-16 h-16 rounded-md mb-2"
-              />
-              <h3 className="font-medium">Projeto 1</h3>
-              <p className="text-[#C4C4CC]">
-                Bot de diverimento para o Discord
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md">
-              <img
-                src="https://github.com/Jonatan966.png"
-                alt="Github"
-                className="w-16 h-16 rounded-md mb-2"
-              />
-              <h3 className="font-medium">Projeto 1</h3>
-              <p className="text-[#C4C4CC]">Lorem ipsum dolor sit amet</p>
-            </li>
-
-            <li className="bg-[#09090A] p-4 rounded-md">
-              <img
-                src="https://github.com/Jonatan966.png"
-                alt="Github"
-                className="w-16 h-16 rounded-md mb-2"
-              />
-              <h3 className="font-medium">Projeto 1</h3>
-              <p className="text-[#C4C4CC]">Lorem ipsum dolor sit amet</p>
-            </li>
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
           </ul>
         </section>
 
