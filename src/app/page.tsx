@@ -61,7 +61,7 @@ export default function Home() {
       <main>
         <section className="flex flex-col items-center justify-center h-96 bg-[#09090A]">
           <h2 className="text-3xl font-bold">Olá 👋</h2>
-          <p className="color-[#C4C4CC]">É muito bom te ver em meu portfólio</p>
+          <p className="text-[#C4C4CC]">É muito bom te ver em meu portfólio</p>
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
