@@ -1,36 +1,11 @@
+import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialLinks } from "@/components/social-links";
-import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214]">
-        <div className="max-w-[1050px] mx-auto p-4 flex items-center">
-          <img
-            src="https://github.com/Jonatan966.png"
-            alt="Foto de perfil de Jonatan Frederico"
-            className="w-8 h-8 rounded-full mr-2"
-          />
-          <h1 className="font-semibold">Jonatan Frederico</h1>
-
-          <nav className="ml-auto flex items-center gap-2">
-            <ul className="hidden gap-2 px-2 border-r-2 border-[#232327] md:flex">
-              <li className="font-semibold">
-                <Link href="/">Projetos</Link>
-              </li>
-              <li className="text-[#C4C4CC]">
-                <Link href="/about">Publicações</Link>
-              </li>
-              <li className="text-[#C4C4CC]">
-                <Link href="/contact">Certificados</Link>
-              </li>
-            </ul>
-
-            <SocialLinks />
-          </nav>
-        </div>
-      </header>
+      <NavigationHeader />
 
       <main>
         <section className="flex flex-col items-center justify-center h-96 bg-[#09090A]">
