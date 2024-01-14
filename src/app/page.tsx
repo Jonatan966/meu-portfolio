@@ -1,8 +1,11 @@
 import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
+import { notionService } from "@/services/notion";
 
-export default function Home() {
+export default async function Home() {
+  const [projects] = await Promise.all([notionService.listProjects()]);
+
   return (
     <>
       <NavigationHeader />
@@ -17,9 +20,9 @@ export default function Home() {
           <h2 className="text-xl font-medium">Projetos</h2>
 
           <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+            {projects.map((project) => (
+              <ProjectCard key={project.id} {...{ project }} />
+            ))}
           </ul>
         </section>
 
