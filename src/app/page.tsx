@@ -1,10 +1,14 @@
+import { CertificateCard } from "@/components/certificate-card";
 import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
 
 export default async function Home() {
-  const [projects] = await Promise.all([notionService.listProjects()]);
+  const [projects, certificates] = await Promise.all([
+    notionService.listProjects(),
+    notionService.listCertificates(),
+  ]);
 
   return (
     <>
@@ -30,33 +34,9 @@ export default async function Home() {
           <h2 className="text-xl font-medium">Certificados</h2>
 
           <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col">
-              <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
-                nov 2022 - set 2023
-              </span>
-              <h3 className="font-medium">
-                Análise e Desenvolvimento de Sistemas
-              </h3>
-              <p className="text-[#C4C4CC]">ETEC Jaraguá</p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col">
-              <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
-                nov 2022 - set 2023
-              </span>
-              <h3 className="font-medium">
-                Análise e Desenvolvimento de Sistemas
-              </h3>
-              <p className="text-[#C4C4CC]">ETEC Jaraguá</p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col">
-              <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
-                nov 2022 - set 2023
-              </span>
-              <h3 className="font-medium">
-                Análise e Desenvolvimento de Sistemas
-              </h3>
-              <p className="text-[#C4C4CC]">ETEC Jaraguá</p>
-            </li>
+            {certificates.map((certificate) => (
+              <CertificateCard key={certificate.id} certificate={certificate} />
+            ))}
           </ul>
         </section>
 
