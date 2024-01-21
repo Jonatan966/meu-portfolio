@@ -1,6 +1,7 @@
 import { slugify } from "@/utils/slugify";
 import { notionApi } from "./api";
 import { environments } from "@/utils/environments";
+import { Tech } from "@/components/techs";
 
 interface RawProject {
   id: string;
@@ -28,6 +29,12 @@ interface RawProject {
         plain_text: string;
       }[];
     };
+    techs: {
+      multi_select: {
+        id: string;
+        name: Tech;
+      }[];
+    };
   };
 }
 
@@ -39,6 +46,7 @@ export interface Project {
   description: string;
   short_description: string;
   repository: string;
+  techs: Tech[];
 }
 
 export async function listProjects(): Promise<Project[]> {
@@ -66,6 +74,7 @@ export async function listProjects(): Promise<Project[]> {
     description: properties.description.rich_text?.[0]?.plain_text,
     short_description: properties.short_description.rich_text?.[0]?.plain_text,
     repository: properties.repository.url,
+    techs: properties.techs.multi_select.map((option) => option.name),
   }));
 
   return parsedProjects;
