@@ -23,10 +23,10 @@ export default async function Home() {
           <p className="text-[#C4C4CC]">É muito bom te ver em meu portfólio</p>
         </section>
 
-        <section className="max-w-[1050px] mx-auto p-4">
+        <section className="max-w-[1050px] mx-auto p-4 mt-2">
           <h2 className="text-xl font-medium">Projetos</h2>
 
-          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-4 mt-2 md:grid-cols-3">
             {projects.map((project) => (
               <ProjectCard key={project.id} {...{ project }} />
             ))}
@@ -36,7 +36,7 @@ export default async function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Certificados</h2>
 
-          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-4 mt-2 md:grid-cols-3">
             {certificates.map((certificate) => (
               <CertificateCard key={certificate.id} certificate={certificate} />
             ))}
@@ -52,7 +52,7 @@ export default async function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Publicações</h2>
 
-          <ComingSoon className="mt-4" />
+          <ComingSoon className="mt-2" />
         </section>
 
         <SocialCTA />
