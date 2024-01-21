@@ -5,7 +5,7 @@ import { environments } from "@/utils/environments";
 interface RawProject {
   id: string;
   icon: {
-    file: {
+    external: {
       url: string;
     };
   };
@@ -62,7 +62,7 @@ export async function listProjects(): Promise<Project[]> {
     id,
     name: properties.name.title?.[0]?.plain_text,
     slug: slugify(properties.name.title?.[0]?.plain_text),
-    icon: icon.file.url,
+    icon: icon.external.url,
     description: properties.description.rich_text?.[0]?.plain_text,
     short_description: properties.short_description.rich_text?.[0]?.plain_text,
     repository: properties.repository.url,
