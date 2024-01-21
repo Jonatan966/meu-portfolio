@@ -1,4 +1,5 @@
 import { listCertificates } from "./list-certificates";
+import { listJobs } from "./list-jobs";
 import { listProjects } from "./list-projects";
 
-export const notionService = { listProjects, listCertificates };
+export const notionService = { listProjects, listCertificates, listJobs };
