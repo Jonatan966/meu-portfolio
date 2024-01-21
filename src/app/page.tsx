@@ -1,13 +1,15 @@
 import { CertificateCard } from "@/components/certificate-card";
+import { CurrentJobCard } from "@/components/current-job-card";
 import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
 
 export default async function Home() {
-  const [projects, certificates] = await Promise.all([
+  const [projects, certificates, jobs] = await Promise.all([
     notionService.listProjects(),
     notionService.listCertificates(),
+    notionService.listJobs(),
   ]);
 
   return (
@@ -43,47 +45,7 @@ export default async function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Jornada</h2>
 
-          <div className="bg-[#09090A] p-4 rounded-md mt-4 flex gap-4 border border-[#232327] md:flex-row flex-col">
-            <div className="flex gap-2">
-              <img
-                src="https://github.com/Jonatan966.png"
-                alt="Jonatan"
-                className="w-20 h-20 rounded-md"
-              />
-
-              <div className="flex flex-col justify-between h-auto items-start md:items-stretch">
-                <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto">
-                  nov 2022 - set 2023
-                </span>
-                <h3 className="font-semibold">Empresa Tal</h3>
-                <p className="text-sm text-[#C4C4CC]">Cargo tal</p>
-              </div>
-            </div>
-
-            <ul className="flex my-auto md:ml-auto gap-2">
-              <li className="text-sm text-[#C4C4CC]">
-                <img
-                  src="https://github.com/NodeJS.png"
-                  alt=""
-                  className="w-10 h-10"
-                />
-              </li>
-              <li className="text-sm text-[#C4C4CC]">
-                <img
-                  src="https://github.com/NodeJS.png"
-                  alt=""
-                  className="w-10 h-10"
-                />
-              </li>{" "}
-              <li className="text-sm text-[#C4C4CC]">
-                <img
-                  src="https://github.com/NodeJS.png"
-                  alt=""
-                  className="w-10 h-10"
-                />
-              </li>
-            </ul>
-          </div>
+          <CurrentJobCard job={jobs[0]} />
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
