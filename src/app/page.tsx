@@ -5,6 +5,7 @@ import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
+import Image from "next/image";
 
 export default async function Home() {
   const [projects, certificates, jobs] = await Promise.all([
@@ -18,9 +19,12 @@ export default async function Home() {
       <NavigationHeader />
 
       <main>
-        <section className="flex flex-col items-center justify-center h-96 bg-[#09090A]">
-          <h2 className="text-3xl font-bold">Olá 👋</h2>
-          <p className="text-[#C4C4CC]">É muito bom te ver em meu portfólio</p>
+        <section className="flex flex-col items-center justify-center h-96 relative">
+          <h2 className="text-3xl font-bold z-20">Olá 👋</h2>
+          <p className="text-[#C4C4CC] z-20">
+            É muito bom te ver em meu portfólio
+          </p>
+          <div className="absolute inset-0 blur-[5px] opacity-50 z-10 bg-home-tilemap bg-[length:150px]" />
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4 mt-2">

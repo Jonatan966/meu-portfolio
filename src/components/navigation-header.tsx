@@ -3,7 +3,7 @@ import { SocialLinks } from "./social-links";
 
 export function NavigationHeader() {
   return (
-    <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214]">
+    <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214] z-30">
       <div className="max-w-[1050px] mx-auto p-4 flex items-center">
         <img
           src="https://github.com/Jonatan966.png"
