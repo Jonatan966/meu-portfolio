@@ -1,4 +1,5 @@
 import { CertificateCard } from "@/components/certificate-card";
+import { ComingSoon } from "@/components/coming-soon";
 import { CurrentJobCard } from "@/components/current-job-card";
 import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
@@ -51,48 +52,7 @@ export default async function Home() {
         <section className="max-w-[1050px] mx-auto p-4">
           <h2 className="text-xl font-medium">Publicações</h2>
 
-          <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col md:col-start-1 md:col-end-3 border border-[#232327]">
-              <h3 className="font-medium text-md my-auto md:max-w-[40%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto md:max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-          </ul>
+          <ComingSoon className="mt-4" />
         </section>
 
         <SocialCTA />
