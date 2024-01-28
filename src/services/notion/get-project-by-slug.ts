@@ -47,6 +47,8 @@ export async function getProjectBySlug(
     techs: rawProject.properties.techs.multi_select.map(
       (option) => option.name
     ),
+    prototype: rawProject.properties.prototype?.url,
+    site: rawProject.properties.site?.url,
   };
 
   return parsedProject;

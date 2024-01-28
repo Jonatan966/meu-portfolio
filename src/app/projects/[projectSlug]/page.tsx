@@ -71,28 +71,35 @@ export default async function ProjectPage(props: ProjectPageProps) {
               </p>
 
               <div className="flex flex-col gap-2 mt-auto">
-                <div className="flex gap-2">
-                  {projectInfo.repository && (
-                    <a
-                      href={projectInfo.repository}
-                      target="_blank"
-                      className="bg-[#161b22] p-2 rounded-md flex items-center gap-2 w-full"
-                    >
-                      <FaGithub size={24} />
-                      <strong className="w-full text-center">
-                        Repositório
-                      </strong>
-                    </a>
-                  )}
-
-                  <button className="bg-[#2c2c2c] p-2 rounded-md flex items-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed">
+                {projectInfo.prototype && (
+                  <a
+                    href={projectInfo.prototype}
+                    target="_blank"
+                    className="bg-[#2c2c2c] p-2 rounded-md flex items-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                     <FaFigma size={24} />
                     <strong className="w-full text-center">Design</strong>
-                  </button>
+                  </a>
+                )}
+                <div className="flex gap-2">
+                  <a
+                    href={projectInfo.repository}
+                    target="_blank"
+                    className="bg-[#161b22] p-2 rounded-md flex items-center gap-2 w-full"
+                  >
+                    <FaGithub size={24} />
+                    <strong className="w-full text-center">Repositório</strong>
+                  </a>
+
+                  <a
+                    href={projectInfo.site}
+                    target="_blank"
+                    aria-disabled={!projectInfo.site}
+                    className="p-2 rounded-md font-bold bg-orange-500 w-full text-center aria-[disabled]:opacity-50 aria-[disabled]:cursor-not-allowed"
+                  >
+                    Site
+                  </a>
                 </div>
-                <button className="p-2 rounded-md font-bold bg-orange-500 w-full disabled:opacity-50 disabled:cursor-not-allowed">
-                  Site
-                </button>
               </div>
             </div>
           </div>

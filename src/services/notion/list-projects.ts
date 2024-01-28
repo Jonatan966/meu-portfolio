@@ -10,6 +10,8 @@ export interface Project {
   slug: string;
   icon: string;
   description?: string;
+  prototype?: string;
+  site?: string;
   short_description: string;
   repository: string;
   techs: Tech[];

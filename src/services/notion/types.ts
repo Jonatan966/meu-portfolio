@@ -32,5 +32,11 @@ export interface RawProject {
         name: Tech;
       }[];
     };
+    prototype: {
+      url?: string;
+    };
+    site: {
+      url?: string;
+    };
   };
 }
