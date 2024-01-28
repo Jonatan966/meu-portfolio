@@ -1,7 +1,30 @@
+import { Markdown } from "@/components/markdown";
 import { NavigationHeader } from "@/components/navigation-header";
 import { SocialCTA } from "@/components/social-cta";
+import { notionService } from "@/services/notion";
+import { notionToMarkdownService } from "@/services/notion-to-markdown";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default function ProjectPage() {
+interface ProjectPageProps {
+  params: {
+    projectSlug: string;
+  };
+}
+
+export default async function ProjectPage(props: ProjectPageProps) {
+  const projectInfo = await notionService.getProjectBySlug(
+    props.params.projectSlug
+  );
+
+  if (!projectInfo) {
+    return notFound();
+  }
+
+  const projectDetails = await notionToMarkdownService.createMarkdownByPageId(
+    projectInfo.id
+  );
+
   return (
     <>
       <NavigationHeader />
@@ -11,19 +34,19 @@ export default function ProjectPage() {
           <div className="max-w-[1050px] mx-auto flex h-full py-4 justify-center px-4">
             <div className="md:w-[50%] h-full flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <img
-                  src="https://github.com/Jonatan966.png"
-                  alt=""
+                <Image
+                  src={projectInfo?.icon!}
+                  alt="Ícone do projeto"
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-md"
                 />
-                <h1 className="text-2xl">Gepeto</h1>
+
+                <h1 className="text-2xl">{projectInfo?.name}</h1>
               </div>
 
               <p className="leading-relaxed text-[#C4C4CC]">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos
-                rem praesentium nulla ullam placeat ad asperiores aliquam enim
-                mollitia explicabo, doloremque inventore dignissimos. A omnis
-                corrupti neque praesentium eius repellendus.
+                {projectInfo?.description}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-2 mt-auto">
@@ -39,23 +62,9 @@ export default function ProjectPage() {
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
-          <h2 className="text-xl font-medium">Detalhes do projeto</h2>
-          <p className="leading-relaxed text-[#C4C4CC] mt-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-            cum omnis ad esse? Nihil, voluptatibus. Eos placeat voluptate odit
-            aspernatur nesciunt distinctio et consequatur neque, accusamus,
-            culpa voluptatem vero eius.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-            voluptatem corporis nemo nobis velit enim maxime repudiandae nulla
-            non asperiores doloremque molestiae dolorem eveniet, omnis molestias
-            officia magnam sequi assumenda!
-            <br />
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-            excepturi dignissimos doloribus quidem odit minus sit a cumque
-            eveniet obcaecati maxime blanditiis illo dolorem! Architecto
-            obcaecati consequuntur cumque numquam voluptatem.
-          </p>
+          <h2 className="text-xl font-medium mb-2">Detalhes do projeto</h2>
+
+          <Markdown>{projectDetails}</Markdown>
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
@@ -99,4 +108,14 @@ export default function ProjectPage() {
       </footer>
     </>
   );
+}
+
+export async function generateStaticParams(): Promise<
+  ProjectPageProps["params"][]
+> {
+  const projects = await notionService.listProjects();
+
+  return projects.map((project) => ({
+    projectSlug: project.slug,
+  }));
 }
