@@ -2,10 +2,12 @@ import { ComingSoon } from "@/components/coming-soon";
 import { Markdown } from "@/components/markdown";
 import { NavigationHeader } from "@/components/navigation-header";
 import { SocialCTA } from "@/components/social-cta";
+import { Techs } from "@/components/techs";
 import { notionService } from "@/services/notion";
 import { notionToMarkdownService } from "@/services/notion-to-markdown";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { FaFigma, FaGithub } from "react-icons/fa";
 
 interface ProjectPageProps {
   params: {
@@ -40,22 +42,56 @@ export default async function ProjectPage(props: ProjectPageProps) {
                   alt="Ícone do projeto"
                   width={56}
                   height={56}
-                  className="w-14 h-14 rounded-md"
+                  className="w-10 h-10 rounded-md"
                 />
 
-                <h1 className="text-2xl">{projectInfo?.name}</h1>
-              </div>
+                <h1 className="text-1xl md:text-2xl font-bold flex-1">
+                  {projectInfo?.name}
+                </h1>
 
+                <ul className="flex gap-2">
+                  {projectInfo.techs.map((tech) => (
+                    <li
+                      className="text-sm text-[#C4C4CC]"
+                      key={`${projectInfo.id}-${tech}`}
+                    >
+                      <Image
+                        src={Techs[tech]}
+                        alt={tech}
+                        className="w-10 h-10"
+                        width={40}
+                        height={40}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <p className="leading-relaxed text-[#C4C4CC]">
                 {projectInfo?.description}
               </p>
 
-              <div className="grid sm:grid-cols-2 gap-2 mt-auto">
-                <button className="bg-orange-500 p-1 rounded-md font-bold">
-                  Acessar Repositório
-                </button>
-                <button className="p-1 rounded-md border-[#232327] border-2">
-                  Acessar Site
+              <div className="flex flex-col gap-2 mt-auto">
+                <div className="flex gap-2">
+                  {projectInfo.repository && (
+                    <a
+                      href={projectInfo.repository}
+                      target="_blank"
+                      className="bg-[#161b22] p-2 rounded-md flex items-center gap-2 w-full"
+                    >
+                      <FaGithub size={24} />
+                      <strong className="w-full text-center">
+                        Repositório
+                      </strong>
+                    </a>
+                  )}
+
+                  <button className="bg-[#2c2c2c] p-2 rounded-md flex items-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed">
+                    <FaFigma size={24} />
+                    <strong className="w-full text-center">Design</strong>
+                  </button>
+                </div>
+                <button className="p-2 rounded-md font-bold bg-orange-500 w-full disabled:opacity-50 disabled:cursor-not-allowed">
+                  Site
                 </button>
               </div>
             </div>
