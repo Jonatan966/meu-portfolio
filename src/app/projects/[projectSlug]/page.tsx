@@ -1,3 +1,4 @@
+import { ComingSoon } from "@/components/coming-soon";
 import { Markdown } from "@/components/markdown";
 import { NavigationHeader } from "@/components/navigation-header";
 import { SocialCTA } from "@/components/social-cta";
@@ -68,34 +69,9 @@ export default async function ProjectPage(props: ProjectPageProps) {
         </section>
 
         <section className="max-w-[1050px] mx-auto p-4">
-          <h2 className="text-xl font-medium">Diário de bordo</h2>
+          <h2 className="text-xl font-medium mb-2">Diário de bordo</h2>
 
-          <ul className="grid md:grid-cols-3 gap-4 mt-2">
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-            <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col border border-[#232327]">
-              <h3 className="font-medium text-md my-auto max-w-[75%]">
-                Callback, Promises e Async/Await: Tudo o que você precisa saber
-              </h3>
-              <p className="text-[#C4C4CC] text-xs">
-                Há 2 dias - 4 min de leitura
-              </p>
-            </li>
-          </ul>
+          <ComingSoon />
         </section>
 
         <SocialCTA />
