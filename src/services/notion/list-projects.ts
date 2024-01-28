@@ -2,48 +2,14 @@ import { slugify } from "@/utils/slugify";
 import { notionApi } from "./api";
 import { environments } from "@/utils/environments";
 import { Tech } from "@/components/techs";
-
-interface RawProject {
-  id: string;
-  icon: {
-    external: {
-      url: string;
-    };
-  };
-  properties: {
-    description: {
-      rich_text: {
-        plain_text: string;
-      }[];
-    };
-    short_description: {
-      rich_text: {
-        plain_text: string;
-      }[];
-    };
-    repository: {
-      url: string;
-    };
-    name: {
-      title: {
-        plain_text: string;
-      }[];
-    };
-    techs: {
-      multi_select: {
-        id: string;
-        name: Tech;
-      }[];
-    };
-  };
-}
+import { RawProject } from "./types";
 
 export interface Project {
   id: string;
   name: string;
   slug: string;
   icon: string;
-  description: string;
+  description?: string;
   short_description: string;
   repository: string;
   techs: Tech[];
@@ -71,7 +37,7 @@ export async function listProjects(): Promise<Project[]> {
     name: properties.name.title?.[0]?.plain_text,
     slug: slugify(properties.name.title?.[0]?.plain_text),
     icon: icon.external.url,
-    description: properties.description.rich_text?.[0]?.plain_text,
+    // description: properties.description.rich_text?.[0]?.plain_text,
     short_description: properties.short_description.rich_text?.[0]?.plain_text,
     repository: properties.repository.url,
     techs: properties.techs.multi_select.map((option) => option.name),
