@@ -24,12 +24,6 @@ export default function RootLayout({
         <NavigationHeader />
 
         {children}
-
-        <footer className="text-center bg-[#09090A] py-4 mt-4 text-sm">
-          <span>
-            Feito com 💝 por <b>Jonatan Frederico</b>
-          </span>
-        </footer>
       </body>
     </html>
   );
