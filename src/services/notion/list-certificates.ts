@@ -21,6 +21,9 @@ interface RawCertificate {
         end: string;
       };
     };
+    file: {
+      url: string;
+    };
   };
 }
 
@@ -29,6 +32,7 @@ export interface Certificate {
   name: string;
   instituition: string;
   period: string;
+  file: string;
 }
 
 export async function listCertificates(): Promise<Certificate[]> {
@@ -48,6 +52,7 @@ export async function listCertificates(): Promise<Certificate[]> {
         properties.period.date.start,
         properties.period.date.end
       ),
+      file: properties.file.url,
     })
   );
 
