@@ -103,11 +103,13 @@ export default async function ProjectPage(props: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="max-w-[1050px] mx-auto p-4">
-        <h2 className="text-xl font-medium mb-2">Detalhes do projeto</h2>
+      {projectDetails && (
+        <section className="max-w-[1050px] mx-auto p-4">
+          <h2 className="text-xl font-medium mb-2">Detalhes do projeto</h2>
 
-        <Markdown>{projectDetails}</Markdown>
-      </section>
+          <Markdown>{projectDetails}</Markdown>
+        </section>
+      )}
 
       <section className="max-w-[1050px] mx-auto p-4">
         <h2 className="text-xl font-medium mb-2">Diário de bordo</h2>
