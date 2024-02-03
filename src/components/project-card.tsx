@@ -1,65 +1,45 @@
-import Image from 'next/image'
-import { RichText } from 'prismic-reactjs'
-
-import { Project } from '../@types/project'
-import { AppImage } from './app-image'
-
-import { Button } from '../styles/components/button'
-import { FlexList } from '../styles/components/flex-list'
-import { ProjectCardContainer } from '../styles/components/project-card'
+import { Project } from "@/services/notion/list-projects";
+import Image from "next/image";
+import Link from "next/link";
+import { Techs } from "./techs";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
-export function ProjectCard({
-  project: { name, description, main_image, repository_url, hosted_url, techs },
-}: ProjectCardProps): JSX.Element {
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <ProjectCardContainer>
-      <div className="project-image">
-        <strong>{name}</strong>
-        <Image
-          src={main_image.url}
-          objectFit="cover"
-          layout="fill"
-          className="image-container"
-        />
-      </div>
-
-      <article className="project-info">
-        <section>
-          <h6>Descrição</h6>
-          {RichText.render(description)}
-        </section>
-
-        <section>
-          <h6>Tecnologias utilizadas</h6>
-          <FlexList direction="row" gap={0.5}>
-            {techs.map((tech) => (
-              <AppImage
-                src={tech.icon.url}
-                alt={tech.name}
-                key={tech.id}
-                size={3.5}
-              />
+    <Link href={`/projects/${project.slug}`}>
+      <li className="bg-[#09090A] p-4 rounded-md">
+        <div className="flex justify-between mb-2">
+          <Image
+            src={project.icon}
+            alt={`Imagem do projeto ${project.name}`}
+            className="w-16 h-16 rounded-md"
+            width={64}
+            height={64}
+          />
+          <ul className="flex gap-1">
+            {project.techs.map((tech) => (
+              <li
+                className="text-sm text-[#C4C4CC]"
+                key={`${project.id}-${tech}`}
+              >
+                <Image
+                  src={Techs[tech]}
+                  alt={tech}
+                  className="w-8 h-8"
+                  width={40}
+                  height={40}
+                />
+              </li>
             ))}
-          </FlexList>
-        </section>
+          </ul>
+        </div>
 
-        <footer>
-          <Button
-            {...(hosted_url?.url
-              ? { as: 'a', href: hosted_url.url, target: '_blank' }
-              : { disabled: true })}
-          >
-            Testar
-          </Button>
-          <Button isOutlined as="a" target="_blank" href={repository_url.url}>
-            Ver código fonte
-          </Button>
-        </footer>
-      </article>
-    </ProjectCardContainer>
-  )
+        <h3 className="font-medium">{project.name}</h3>
+        <p className="text-[#C4C4CC]">{project.short_description}</p>
+      </li>
+    </Link>
+  );
 }
