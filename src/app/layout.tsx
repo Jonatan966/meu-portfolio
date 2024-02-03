@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { NavigationHeader } from "@/components/navigation-header";
@@ -19,11 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={inter.className}>
         <NavigationHeader />
 
         {children}
+
+        <Analytics />
       </body>
     </html>
   );
