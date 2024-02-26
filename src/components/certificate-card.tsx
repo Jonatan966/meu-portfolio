@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Certificate } from "@/services/notion/list-certificates";
 
 interface CertificateCardProps {
@@ -15,12 +16,14 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
         </span>
         <h3 className="font-medium">{certificate.name}</h3>
         <p className="text-[#C4C4CC]">{certificate.instituition}</p>
-        <div
-          className="absolute inset-0 blur-[5px] opacity-20 z-10 bg-cover"
-          style={{
-            backgroundImage: fileThumb ? `url("${fileThumb}")` : "",
-          }}
-        />
+        {fileThumb && (
+          <img
+            src={fileThumb}
+            alt="Preview do certificado"
+            className="absolute inset-0 blur-[5px] opacity-20 z-10 w-full h-full"
+            loading="lazy"
+          />
+        )}
       </li>
     </a>
   );
