@@ -32,7 +32,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
   return (
     <main>
       <section
-        className={clsx("bg-[#09090A]", {
+        className={clsx("bg-zinc-950", {
           "md:h-96": !!projectInfo.demonstration,
           "h-96": !projectInfo.demonstration,
         })}
@@ -41,7 +41,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
           {projectInfo.demonstration && (
             <div className="md:w-[50%] h-full flex items-center justify-center">
               <VideoPlayer
-                className="my-auto h-full w-full rounded-md aspect-video md:aspect-auto border border-[#232327] overflow-hidden"
+                className="my-auto h-full w-full rounded-md aspect-video md:aspect-auto border border-neutral-800 overflow-hidden"
                 options={{
                   controls: true,
                   sources: [
@@ -72,7 +72,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
               <ul className="flex gap-2">
                 {projectInfo.techs.map((tech) => (
                   <li
-                    className="text-sm text-[#C4C4CC]"
+                    className="text-sm text-stone-300"
                     key={`${projectInfo.id}-${tech}`}
                   >
                     <Image
@@ -87,7 +87,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
                 ))}
               </ul>
             </div>
-            <p className="leading-relaxed text-[#C4C4CC]">
+            <p className="leading-relaxed text-stone-300">
               {projectInfo?.description}
             </p>
 
@@ -96,7 +96,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
                 <a
                   href={projectInfo.prototype}
                   target="_blank"
-                  className="bg-[#2c2c2c] p-2 rounded-md flex items-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-zinc-800 p-2 rounded-md flex items-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <FaFigma size={24} />
                   <strong className="w-full text-center">Design</strong>
@@ -106,7 +106,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
                 <a
                   href={projectInfo.repository}
                   target="_blank"
-                  className="bg-[#161b22] p-2 rounded-md flex items-center gap-2 w-full"
+                  className="bg-gray-900 p-2 rounded-md flex items-center gap-2 w-full"
                 >
                   <FaGithub size={24} />
                   <strong className="w-full text-center">Repositório</strong>

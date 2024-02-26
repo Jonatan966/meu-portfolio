@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function NavigationHeader() {
   return (
-    <header className="border-b-2 border-[#232327] sticky top-0 bg-[#121214] z-30">
+    <header className="border-b-2 border-neutral-800 sticky top-0 bg-neutral-900 z-30">
       <div className="max-w-[1050px] mx-auto p-4 flex items-center">
         <Link href="/" className="flex items-center">
           <Image
@@ -18,11 +18,11 @@ export function NavigationHeader() {
         </Link>
 
         <nav className="ml-auto flex items-center gap-2">
-          <ul className="hidden gap-2 px-2 border-r-2 border-[#232327] md:flex">
-            <li className="text-[#C4C4CC]" /* className="font-semibold" */>
+          <ul className="hidden gap-2 px-2 border-r-2 border-neutral-800 md:flex">
+            <li className="text-stone-300" /* className="font-semibold" */>
               <Link href="/projects">Projetos</Link>
             </li>
-            <li className="text-[#C4C4CC]">
+            <li className="text-stone-300">
               <Link href="/publications">Publicações</Link>
             </li>
           </ul>

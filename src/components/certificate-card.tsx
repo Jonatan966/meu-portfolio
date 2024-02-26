@@ -10,12 +10,12 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
 
   return (
     <a href={certificate.file} target="_blank">
-      <li className="bg-[#09090A] p-4 rounded-md h-40 flex flex-col relative border border-[#232327]">
+      <li className="bg-zinc-950 p-4 rounded-md h-40 flex flex-col relative border border-neutral-800">
         <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
           {certificate.period}
         </span>
         <h3 className="font-medium">{certificate.name}</h3>
-        <p className="text-[#C4C4CC]">{certificate.instituition}</p>
+        <p className="text-stone-300">{certificate.instituition}</p>
         {fileThumb && (
           <img
             src={fileThumb}

@@ -18,7 +18,7 @@ export default async function Home() {
     <main>
       <section className="flex flex-col items-center justify-center h-96 relative">
         <h2 className="text-3xl font-bold z-20">Olá 👋</h2>
-        <p className="text-[#C4C4CC] z-20">
+        <p className="text-stone-300 z-20">
           É muito bom te ver em meu portfólio
         </p>
         <div className="absolute inset-0 blur-[5px] opacity-50 z-10 bg-home-tilemap bg-[length:150px]" />

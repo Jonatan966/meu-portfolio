@@ -8,7 +8,7 @@ interface CurrentJobCardProps {
 
 export function CurrentJobCard({ job }: CurrentJobCardProps) {
   return (
-    <div className="bg-[#09090A] p-4 rounded-md mt-2 flex gap-4 border border-[#232327] md:flex-row flex-col">
+    <div className="bg-zinc-950 p-4 rounded-md mt-2 flex gap-4 border border-neutral-800 md:flex-row flex-col">
       <div className="flex gap-2">
         <Image
           src={job.imageUrl}
@@ -23,13 +23,13 @@ export function CurrentJobCard({ job }: CurrentJobCardProps) {
             {job.period}
           </span>
           <h3 className="font-semibold">{job.businessName}</h3>
-          <p className="text-sm text-[#C4C4CC]">{job.role}</p>
+          <p className="text-sm text-stone-300">{job.role}</p>
         </div>
       </div>
 
       <ul className="flex my-auto md:ml-auto gap-2">
         {job.techs.map((tech) => (
-          <li className="text-sm text-[#C4C4CC]" key={`${job.id}-${tech}`}>
+          <li className="text-sm text-stone-300" key={`${job.id}-${tech}`}>
             <Image
               src={Techs[tech]}
               alt={tech}

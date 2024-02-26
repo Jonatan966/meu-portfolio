@@ -9,7 +9,7 @@ export function Markdown(props: MarkdownProps) {
     <ReactMarkdown
       components={{
         p: (props) => (
-          <p {...props} className="leading-relaxed text-[#C4C4CC]">
+          <p {...props} className="leading-relaxed text-stone-300">
             {props.children}
           </p>
         ),

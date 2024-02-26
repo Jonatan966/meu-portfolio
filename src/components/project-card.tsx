@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`}>
-      <li className="bg-[#09090A] p-4 rounded-md">
+      <li className="bg-zinc-950 p-4 rounded-md">
         <div className="flex justify-between mb-2">
           <Image
             src={project.icon}
@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <ul className="flex gap-1">
             {project.techs.map((tech) => (
               <li
-                className="text-sm text-[#C4C4CC]"
+                className="text-sm text-stone-300"
                 key={`${project.id}-${tech}`}
               >
                 <Image
@@ -38,7 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <h3 className="font-medium">{project.name}</h3>
-        <p className="text-[#C4C4CC]">{project.short_description}</p>
+        <p className="text-stone-300">{project.short_description}</p>
       </li>
     </Link>
   );

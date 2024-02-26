@@ -28,7 +28,7 @@ export function SocialLinks(props: SocialLinksProps) {
       {SOCIAL_MEDIAS.map(({ url, icon: SocialIcon }) => (
         <li key={url}>
           <a href={url} target="_blank">
-            <SocialIcon size={30} className="bg-[#202024] p-1 rounded-md" />
+            <SocialIcon size={30} className="bg-neutral-800 p-1 rounded-md" />
           </a>
         </li>
       ))}
