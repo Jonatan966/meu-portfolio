@@ -5,4 +5,5 @@ export const environments = {
     CERTIFICATES_DATABASE_ID: process.env.NOTION_CERTIFICATES_DATABASE_ID!,
     JOBS_DATABASE_ID: process.env.NOTION_JOBS_DATABASE_ID!,
   },
+  isDevelopment: process.env.NODE_ENV === "development",
 };
