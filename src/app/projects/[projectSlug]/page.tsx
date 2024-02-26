@@ -1,10 +1,11 @@
 import { ComingSoon } from "@/components/coming-soon";
 import { Markdown } from "@/components/markdown";
-import { NavigationHeader } from "@/components/navigation-header";
 import { SocialCTA } from "@/components/social-cta";
 import { Techs } from "@/components/techs";
+import { VideoPlayer } from "@/components/video-player";
 import { notionService } from "@/services/notion";
 import { notionToMarkdownService } from "@/services/notion-to-markdown";
+import clsx from "clsx";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FaFigma, FaGithub } from "react-icons/fa";
@@ -30,8 +31,30 @@ export default async function ProjectPage(props: ProjectPageProps) {
 
   return (
     <main>
-      <section className="h-96 bg-[#09090A]">
-        <div className="max-w-[1050px] mx-auto flex h-full py-4 justify-center px-4">
+      <section
+        className={clsx("bg-[#09090A]", {
+          "md:h-96": !!projectInfo.demonstration,
+          "h-96": !projectInfo.demonstration,
+        })}
+      >
+        <div className="max-w-[1050px] mx-auto flex flex-col gap-4 h-full py-4 justify-center px-4 md:flex-row">
+          {projectInfo.demonstration && (
+            <div className="md:w-[50%] h-full flex items-center justify-center">
+              <VideoPlayer
+                className="my-auto h-full w-full rounded-md aspect-video md:aspect-auto border border-[#232327] overflow-hidden"
+                options={{
+                  controls: true,
+                  sources: [
+                    {
+                      src: projectInfo.demonstration,
+                      type: "video/mp4",
+                    },
+                  ],
+                }}
+              />
+            </div>
+          )}
+
           <div className="md:w-[50%] h-full flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <Image
