@@ -11,6 +11,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "@vercel/analytics": "^1.1.2",
+    "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "next": "14.0.4",
     "notion-to-md": "^3.1.1",
