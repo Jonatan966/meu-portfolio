@@ -49,6 +49,7 @@ export async function getProjectBySlug(
     ),
     prototype: rawProject.properties.prototype?.url,
     site: rawProject.properties.site?.url,
+    demonstration: rawProject.properties.demonstration?.files[0]?.external.url,
   };
 
   return parsedProject;

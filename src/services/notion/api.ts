@@ -6,6 +6,6 @@ export const notionApi = new Client({
   fetch: (url, init) =>
     fetch(url, {
       ...init,
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     }),
 });

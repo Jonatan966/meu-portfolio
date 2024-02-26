@@ -15,6 +15,7 @@ export interface Project {
   short_description: string;
   repository: string;
   techs: Tech[];
+  demonstration?: string;
 }
 
 export async function listProjects(): Promise<Project[]> {

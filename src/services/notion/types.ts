@@ -38,5 +38,13 @@ export interface RawProject {
     site: {
       url?: string;
     };
+    demonstration?: {
+      files: {
+        name: string;
+        external: {
+          url: string;
+        };
+      }[];
+    };
   };
 }
