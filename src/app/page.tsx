@@ -1,11 +1,9 @@
 import { CertificateCard } from "@/components/certificate-card";
 import { ComingSoon } from "@/components/coming-soon";
 import { CurrentJobCard } from "@/components/current-job-card";
-import { NavigationHeader } from "@/components/navigation-header";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
-import Image from "next/image";
 
 export default async function Home() {
   const [projects, certificates, jobs] = await Promise.all([
