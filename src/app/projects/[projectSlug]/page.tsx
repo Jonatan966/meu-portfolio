@@ -92,7 +92,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
                 <a
                   href={projectInfo.site}
                   target="_blank"
-                  aria-disabled={!projectInfo.site}
+                  aria-disabled={!projectInfo.site || undefined}
                   className="p-2 rounded-md font-bold bg-orange-500 w-full text-center aria-[disabled]:opacity-50 aria-[disabled]:cursor-not-allowed"
                 >
                   Site
