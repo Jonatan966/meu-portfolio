@@ -31,6 +31,12 @@ export async function listProjects(): Promise<Project[]> {
         },
       ],
     },
+    sorts: [
+      {
+        direction: "ascending",
+        property: "order",
+      },
+    ],
   });
 
   const rawProjects = projectsResponse.results as unknown as RawProject[];
