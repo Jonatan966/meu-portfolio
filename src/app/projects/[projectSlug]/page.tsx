@@ -1,10 +1,8 @@
 import { ComingSoon } from "@/components/coming-soon";
-import { Markdown } from "@/components/markdown";
 import { SocialCTA } from "@/components/social-cta";
 import { Techs } from "@/components/techs";
 import { VideoPlayer } from "@/components/video-player";
 import { notionService } from "@/services/notion";
-import { notionToMarkdownService } from "@/services/notion-to-markdown";
 import clsx from "clsx";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -24,10 +22,6 @@ export default async function ProjectPage(props: ProjectPageProps) {
   if (!projectInfo) {
     return notFound();
   }
-
-  const projectDetails = await notionToMarkdownService.createMarkdownByPageId(
-    projectInfo.id
-  );
 
   return (
     <main>
@@ -125,14 +119,6 @@ export default async function ProjectPage(props: ProjectPageProps) {
           </div>
         </div>
       </section>
-
-      {projectDetails && (
-        <section className="max-w-[1050px] mx-auto p-4">
-          <h2 className="text-xl font-medium mb-2">Detalhes do projeto</h2>
-
-          <Markdown>{projectDetails}</Markdown>
-        </section>
-      )}
 
       <section className="max-w-[1050px] mx-auto p-4">
         <h2 className="text-xl font-medium mb-2">Diário de bordo</h2>
