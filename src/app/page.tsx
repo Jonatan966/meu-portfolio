@@ -1,6 +1,7 @@
 import { CertificateCard } from "@/components/certificate-card";
 import { ComingSoon } from "@/components/coming-soon";
 import { CurrentJobCard } from "@/components/current-job-card";
+import { PreviousJobCard } from "@/components/previous-job-card";
 import { ProjectCard } from "@/components/project-card";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
@@ -50,7 +51,15 @@ export default async function Home() {
       <section className="max-w-[1050px] mx-auto p-4">
         <h2 className="text-xl font-medium">Jornada</h2>
 
-        <CurrentJobCard job={jobs[0]} />
+        <ul className="grid grid-cols-1 gap-4 mt-2 md:grid-cols-3">
+          {jobs.map((job, index) =>
+            index === 0 ? (
+              <CurrentJobCard job={job} key={job.id} />
+            ) : (
+              <PreviousJobCard job={job} key={job.id} />
+            )
+          )}
+        </ul>
       </section>
 
       <section className="max-w-[1050px] mx-auto p-4">

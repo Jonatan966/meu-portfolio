@@ -8,7 +8,7 @@ interface CurrentJobCardProps {
 
 export function CurrentJobCard({ job }: CurrentJobCardProps) {
   return (
-    <div className="bg-zinc-950 p-4 rounded-md mt-2 flex gap-4 border border-neutral-800 md:flex-row flex-col">
+    <li className="bg-zinc-950 p-4 rounded-md mt-2 flex gap-4 border border-white md:flex-row flex-col md:col-span-3">
       <div className="flex gap-2">
         <Image
           src={job.imageUrl}
@@ -40,6 +40,6 @@ export function CurrentJobCard({ job }: CurrentJobCardProps) {
           </li>
         ))}
       </ul>
-    </div>
+    </li>
   );
 }
