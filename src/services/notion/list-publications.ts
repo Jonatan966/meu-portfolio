@@ -31,18 +31,35 @@ export interface RawPublication {
   };
 }
 
-export async function listPublications(): Promise<Publication[]> {
+interface ListPublicationsProps {
+  publicationToSkip?: string;
+}
+
+export async function listPublications(
+  props?: ListPublicationsProps
+): Promise<Publication[]> {
+  const andFilters: any[] = [
+    {
+      property: "public",
+      checkbox: {
+        equals: true,
+      },
+    },
+  ];
+
+  if (props?.publicationToSkip) {
+    andFilters.push({
+      property: "slug",
+      rich_text: {
+        does_not_equal: props.publicationToSkip,
+      },
+    });
+  }
+
   const publicationsResponse = await notionApi.databases.query({
     database_id: environments.notion.PUBLICATIONS_DATABASE_ID,
     filter: {
-      and: [
-        {
-          property: "public",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
+      and: andFilters,
     },
   });
 
