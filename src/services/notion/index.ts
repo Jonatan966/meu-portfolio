@@ -1,3 +1,4 @@
+import { getProjectById } from "./get-project-by-id";
 import { getProjectBySlug } from "./get-project-by-slug";
 import { listCertificates } from "./list-certificates";
 import { listJobs } from "./list-jobs";
@@ -8,4 +9,5 @@ export const notionService = {
   listCertificates,
   listJobs,
   getProjectBySlug,
+  getProjectById,
 };
