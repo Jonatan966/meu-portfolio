@@ -58,6 +58,9 @@ import TravisCi from "./travis-ci.svg";
 import Typescript from "./typescript.svg";
 import Vuejs from "./vuejs.svg";
 import Webpack from "./webpack.svg";
+import OpenAI from "./openai.svg";
+import Discord from "./discord.svg";
+import Stripe from "./stripe.svg";
 
 export enum Tech {
   ANDROID = "android",
@@ -120,6 +123,9 @@ export enum Tech {
   TYPESCRIPT = "typescript",
   VUEJS = "vuejs",
   WEBPACK = "webpack",
+  OPEN_AI = "openai",
+  DISCORD = "discord",
+  STRIPE = "stripe",
 }
 
 export const Techs = {
@@ -183,4 +189,7 @@ export const Techs = {
   [Tech.TYPESCRIPT]: Typescript,
   [Tech.VUEJS]: Vuejs,
   [Tech.WEBPACK]: Webpack,
+  [Tech.OPEN_AI]: OpenAI,
+  [Tech.DISCORD]: Discord,
+  [Tech.STRIPE]: Stripe,
 };
