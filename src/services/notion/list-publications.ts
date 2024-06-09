@@ -5,6 +5,7 @@ export interface Publication {
   id: string;
   slug: string;
   title: string;
+  tag: string;
   related_project_id?: string;
   created_at: string;
 }
@@ -22,6 +23,11 @@ export interface RawPublication {
       rich_text: {
         plain_text: string;
       }[];
+    };
+    tag: {
+      select: {
+        name: string;
+      };
     };
     related_project?: {
       relation: {
@@ -71,6 +77,7 @@ export async function listPublications(
       id,
       slug: properties.slug.rich_text?.[0]?.plain_text,
       title: properties.title.title?.[0]?.plain_text,
+      tag: properties.tag.select.name,
       related_project_id: properties.related_project?.relation?.[0].id,
       created_at: created_time,
     })

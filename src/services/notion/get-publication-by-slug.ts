@@ -34,6 +34,7 @@ export async function getPublicationBySlug(publicationSlug: string) {
     id: rawPublication.id,
     slug: rawPublication.properties.slug.rich_text?.[0]?.plain_text,
     title: rawPublication.properties.title.title?.[0]?.plain_text,
+    tag: rawPublication.properties.tag.select.name,
     related_project_id:
       rawPublication.properties.related_project?.relation?.[0].id,
     created_at: rawPublication.created_time,
