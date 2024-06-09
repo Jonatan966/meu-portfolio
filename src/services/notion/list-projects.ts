@@ -33,8 +33,8 @@ export async function listProjects(): Promise<Project[]> {
     },
     sorts: [
       {
-        direction: "ascending",
-        property: "order",
+        property: "highlight",
+        direction: "descending",
       },
     ],
   });
