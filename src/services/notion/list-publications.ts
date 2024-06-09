@@ -39,6 +39,7 @@ export interface RawPublication {
 
 interface ListPublicationsProps {
   publicationToSkip?: string;
+  relatedProjectId?: string;
 }
 
 export async function listPublications(
@@ -58,6 +59,15 @@ export async function listPublications(
       property: "slug",
       rich_text: {
         does_not_equal: props.publicationToSkip,
+      },
+    });
+  }
+
+  if (props?.relatedProjectId) {
+    andFilters.push({
+      property: "related_project",
+      relation: {
+        contains: props.relatedProjectId,
       },
     });
   }
