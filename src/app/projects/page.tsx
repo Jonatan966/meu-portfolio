@@ -6,7 +6,7 @@ export default async function ProjectsPage() {
 
   return (
     <main>
-      <section className="max-w-[1050px] mx-auto p-4 mt-2">
+      <section className="max-w-[1050px] mx-auto p-4">
         <div className="flex items-center gap-2">
           <h2 className="text-xl font-medium">Projetos</h2>
           <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold">

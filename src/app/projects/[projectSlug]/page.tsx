@@ -1,4 +1,4 @@
-import { ComingSoon } from "@/components/coming-soon";
+import { PublicationsSection } from "@/components/publications-section";
 import { SocialCTA } from "@/components/social-cta";
 import { Techs } from "@/components/techs";
 import { VideoPlayer } from "@/components/video-player";
@@ -120,11 +120,10 @@ export default async function ProjectPage(props: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="max-w-[1050px] mx-auto p-4">
-        <h2 className="text-xl font-medium mb-2">Diário de bordo</h2>
-
-        <ComingSoon />
-      </section>
+      <PublicationsSection
+        title="Diário de bordo"
+        relatedProjectId={projectInfo.id}
+      />
 
       <SocialCTA />
     </main>

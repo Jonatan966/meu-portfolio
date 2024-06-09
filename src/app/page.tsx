@@ -1,10 +1,12 @@
 import { CertificateCard } from "@/components/certificate-card";
-import { ComingSoon } from "@/components/coming-soon";
 import { CurrentJobCard } from "@/components/current-job-card";
 import { PreviousJobCard } from "@/components/previous-job-card";
 import { ProjectCard } from "@/components/project-card";
+import { PublicationsSection } from "@/components/publications-section";
+import { Skeleton } from "@/components/skeleton";
 import { SocialCTA } from "@/components/social-cta";
 import { notionService } from "@/services/notion";
+import { Suspense } from "react";
 
 export default async function Home() {
   const [projects, certificates, jobs] = await Promise.all([
@@ -62,11 +64,9 @@ export default async function Home() {
         </ul>
       </section>
 
-      <section className="max-w-[1050px] mx-auto p-4">
-        <h2 className="text-xl font-medium">Publicações</h2>
-
-        <ComingSoon className="mt-2" />
-      </section>
+      <Suspense fallback={<Skeleton className="h-24" />}>
+        <PublicationsSection title="Publicações" />
+      </Suspense>
 
       <SocialCTA />
     </main>
