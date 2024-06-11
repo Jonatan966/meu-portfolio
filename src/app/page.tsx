@@ -27,6 +27,21 @@ export default async function Home() {
 
       <section className="max-w-[1050px] mx-auto p-4 mt-2">
         <div className="flex items-center gap-2">
+          <h2 className="text-xl font-medium">Sobre mim</h2>
+        </div>
+
+        <p className="mt-2 leading-relaxed text-stone-300">
+          Sou <b>Desenvolvedor Fullstack</b>, estudando programação desde 2019 e
+          possuindo formação técnica em{" "}
+          <b>Análise e Desenvolvimento de Sistemas</b>. Atualmente minha
+          especialidade é no desenvolvimento de sites e APIs utilizando muito{" "}
+          <b>Javascript/Typescript</b>. Sou um entusiasta, frequentemente estou
+          criando projetos ou experimentando ferramentas.
+        </p>
+      </section>
+
+      <section className="max-w-[1050px] mx-auto p-4 mt-2">
+        <div className="flex items-center gap-2">
           <h2 className="text-xl font-medium">Projetos</h2>
           <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold">
             {projects.length} no total
