@@ -14,5 +14,7 @@
 @media (max-width: 639px) {
   .currentJob {
     grid-template-areas: "project-image project-details" "project-main project-main";
+
+    @apply gap-[.5rem_0];
   }
 }
