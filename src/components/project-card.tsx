@@ -5,12 +5,15 @@ import { Techs } from "./techs";
 
 interface ProjectCardProps {
   project: Project;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, as = "li" }: ProjectCardProps) {
+  const Container = as;
+
   return (
     <Link href={`/projects/${project.slug}`}>
-      <li className="bg-zinc-950 p-4 rounded-md border border-neutral-800">
+      <Container className="bg-zinc-950 p-4 rounded-md border border-neutral-800">
         <div className="flex justify-between mb-2">
           <Image
             src={project.icon}
@@ -39,7 +42,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <h3 className="font-medium">{project.name}</h3>
         <p className="text-stone-300">{project.short_description}</p>
-      </li>
+      </Container>
     </Link>
   );
 }

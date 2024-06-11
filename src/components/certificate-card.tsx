@@ -10,7 +10,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
 
   return (
     <a href={certificate.file} target="_blank">
-      <li className="bg-zinc-950 p-4 rounded-md h-40 flex flex-col relative border border-neutral-800">
+      <li className="bg-zinc-950 p-4 rounded-md h-40 flex flex-col relative border border-neutral-800 overflow-hidden">
         <span className="text-xs bg-white text-black rounded-xl px-2 py-1 font-bold mb-auto ml-auto">
           {certificate.period}
         </span>

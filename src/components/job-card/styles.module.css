@@ -1,0 +1,18 @@
+.jobCardContainer {
+  grid-template-areas: "project-image project-details" "project-main project-main";
+
+  @apply grid;
+}
+
+.currentJob {
+  grid-template-areas: "project-image project-main project-details";
+  grid-template-columns: max-content auto max-content;
+
+  @apply md:col-span-3 grid border-white;
+}
+
+@media (max-width: 639px) {
+  .currentJob {
+    grid-template-areas: "project-image project-details" "project-main project-main";
+  }
+}
