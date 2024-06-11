@@ -6,6 +6,7 @@ interface PublicationsSectionProps {
   title: string;
   publicationToSkip?: string;
   relatedProjectId?: string;
+  maxPublicationsCount?: number;
   tag?: string;
 }
 
@@ -13,6 +14,7 @@ export async function PublicationsSection(props: PublicationsSectionProps) {
   const publications = await notionService.listPublications({
     publicationToSkip: props.publicationToSkip,
     relatedProjectId: props.relatedProjectId,
+    maxPublicationsCount: props.maxPublicationsCount,
   });
 
   return (

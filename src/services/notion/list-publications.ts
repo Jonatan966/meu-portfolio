@@ -40,6 +40,7 @@ export interface RawPublication {
 interface ListPublicationsProps {
   publicationToSkip?: string;
   relatedProjectId?: string;
+  maxPublicationsCount?: number;
 }
 
 export async function listPublications(
@@ -77,6 +78,13 @@ export async function listPublications(
     filter: {
       and: andFilters,
     },
+    page_size: props?.maxPublicationsCount,
+    sorts: [
+      {
+        timestamp: "created_time",
+        direction: "descending",
+      },
+    ],
   });
 
   const rawPublications =

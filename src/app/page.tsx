@@ -80,7 +80,7 @@ export default async function Home() {
       </section>
 
       <Suspense fallback={<Skeleton className="h-24" />}>
-        <PublicationsSection title="Publicações" />
+        <PublicationsSection title="Publicações" maxPublicationsCount={9} />
       </Suspense>
 
       <SocialCTA />
