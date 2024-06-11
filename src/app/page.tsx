@@ -1,6 +1,5 @@
 import { CertificateCard } from "@/components/certificate-card";
-import { CurrentJobCard } from "@/components/current-job-card";
-import { PreviousJobCard } from "@/components/previous-job-card";
+import { JobCard } from "@/components/job-card";
 import { ProjectCard } from "@/components/project-card";
 import { PublicationsSection } from "@/components/publications-section";
 import { Skeleton } from "@/components/skeleton";
@@ -69,13 +68,9 @@ export default async function Home() {
         <h2 className="text-xl font-medium">Jornada</h2>
 
         <ul className="grid grid-cols-1 gap-4 mt-2 md:grid-cols-3">
-          {jobs.map((job, index) =>
-            index === 0 ? (
-              <CurrentJobCard job={job} key={job.id} />
-            ) : (
-              <PreviousJobCard job={job} key={job.id} />
-            )
-          )}
+          {jobs.map((job, index) => (
+            <JobCard job={job} isCurrent={index === 0} key={job.id} />
+          ))}
         </ul>
       </section>
 
