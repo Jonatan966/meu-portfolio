@@ -3,7 +3,7 @@ import { SocialLinks } from "./social-links";
 export function SocialCTA() {
   return (
     <section className="max-w-[1050px] mx-auto p-4">
-      <div className="bg-orange-500 p-4 rounded-md flex flex-col md:items-center gap-4 md:flex-row">
+      <div className="bg-emerald-900 p-4 rounded-md flex flex-col md:items-center gap-4 md:flex-row">
         <span className="text-4xl">👀</span>
 
         <div>
