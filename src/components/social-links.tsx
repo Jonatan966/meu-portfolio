@@ -1,24 +1,20 @@
 import { ComponentProps } from "react";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 type SocialLinksProps = ComponentProps<"ul">;
 
 const SOCIAL_MEDIAS = [
   {
     icon: FaLinkedin,
-    url: "https://curr.to/jonatan-linkedin-portfolio",
+    url: "/linkedin",
   },
   {
     icon: FaGithub,
-    url: "https://curr.to/jonatan-github-portfolio",
-  },
-  {
-    icon: FaTwitter,
-    url: "https://curr.to/jonatan-twitter-portfolio",
+    url: "/github",
   },
   {
     icon: FaInstagram,
-    url: "https://curr.to/jonatan-instagram-portfolio",
+    url: "/instagram",
   },
 ];
 

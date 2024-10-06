@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/instagram",
+      "destination": "https://www.instagram.com/ojonatan.f"
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/jonatan-frederico"
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/Jonatan966"
+    }
+  ]
+}
